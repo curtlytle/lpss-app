@@ -13,7 +13,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
-    public UserDetailsService uds() {
+    public UserDetailsService userDetailsService() {
         var uds = new InMemoryUserDetailsManager();
 
         var u = User.withUsername("curt")
