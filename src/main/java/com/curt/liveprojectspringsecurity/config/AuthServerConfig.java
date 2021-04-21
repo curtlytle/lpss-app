@@ -1,5 +1,6 @@
 package com.curt.liveprojectspringsecurity.config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -21,7 +22,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
     public AuthServerConfig(AuthenticationManager authenticationManager,
             TokenStore tokenStore,
-            JwtAccessTokenConverter converter) {
+            @Qualifier("jwtAccessTokenConverter") JwtAccessTokenConverter converter) {
         this.authenticationManager = authenticationManager;
         this.tokenStore = tokenStore;
         this.converter = converter;
